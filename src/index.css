@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@theme{--font-sans:"DM Sans",system-ui,sans-serif;--color-ink:#101820;--color-paper:#f4f6f8;--color-sun:#ffc21a}
+html,body,#root{height:100%}
+body{@apply bg-paper text-ink font-sans antialiased}
+h3,.f{font-family:"Bricolage Grotesque","DM Sans",sans-serif}
+.leaflet-container{z-index:0;font-family:inherit}
+.in{@apply w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm outline-none focus:border-ink focus:ring-2 focus:ring-sun/60}
+.btn{@apply rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-85 active:scale-95 disabled:opacity-50}
+.btn2{@apply rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold transition hover:bg-slate-50 active:scale-95}
+.card{@apply rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200}
+.chip{@apply shrink-0 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm}
+.pin{width:18px;height:18px;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 6px #0006}
+:focus-visible{outline:3px solid var(--color-sun);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+:root[data-theme=dark]{color-scheme:dark;--color-paper:#0b1118;--color-ink:#eef2f6;--color-white:#17212d;--color-slate-50:#17212d;--color-slate-100:#202c3a;--color-slate-200:#2b3a4c;--color-slate-300:#3a4b61;--color-slate-400:#8796aa;--color-slate-500:#9eadc0;--color-red-50:#3a1717;--color-red-600:#f87171;--color-red-800:#fecaca;--color-green-50:#10301f;--color-green-800:#bbf7d0;--color-blue-600:#7cb4ff;--color-blue-700:#7cb4ff}
+:root[data-theme=dark] .leaflet-container{background:#0b1118}
+body,.card,.in,.chip,aside{transition:background-color .3s,color .3s,border-color .3s}
+.pin{transition:transform .3s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+@keyframes sheet{from{opacity:0;transform:translateY(40px)}}
+@keyframes fade{from{opacity:0}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 var(--c)}70%,100%{box-shadow:0 0 0 14px #0000}}
+@keyframes grow{from{transform:scaleX(0)}}
+@keyframes dash{to{stroke-dashoffset:-64}}
+.rise{animation:rise .45s cubic-bezier(.2,.8,.2,1) both}
+.sheet{animation:sheet .35s cubic-bezier(.32,.72,0,1) both}
+.fade{animation:fade .35s both}
+.pulse{animation:pulse 2s infinite}
+.grow{transform-origin:left;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}
+.route{animation:dash 2.4s linear infinite}
+@media(prefers-reduced-motion:reduce){.rider{display:none}}
+
+[data-theme=dark] .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9)}
+.zl{background:none;border:0;box-shadow:none;font-size:11px;font-weight:600;color:#64748b}.zl:before{display:none}
